@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic menu</title>
+    <style>
+        ul{padding: 0;}
+        li{
+            display: inline;
+            list-style-type:none;  
+            padding:10px 50px 10px 50px; 
+            font-size: 20px;
+            }
+        a{
+            text-decoration: none;
+            }
+        /* a:hover{
+                color:"hovColor.value"
+                        } */
+            iframe{
+                height:500px; 
+                width:500px;
+            }
+    </style>
+</head>
+<body>
+    <p><input type="text" id="elemMenu" size="50"></p>
+    <p><input type="button" value="Создать меню" onclick="myMenu()"></p>
+    <p><span>Цвет текста:</span> <input type="color" value="#ffffff" id="textColor"></p>
+    <p><span>Цвет фона:</span> <input type="color" value="#75bbfd" id="backColor"></p>
+    <p><span>Цвет hover:</span> <input type="color" value="#ffa500" id="hovColor"></p>
+    <div id="menu"> </div>
+    <iframe   name="new" frameborder="0"></iframe>
+    <script>
+        function myMenu(){
+            let arrMenu=elemMenu.value.split(", ")
+            let list="<ul>";
+            let s="";
+            for (i=0;i<arrMenu.length;i++){
+                list+=`<li style="background-color: ${backColor.value}; "><a href="images/${i+1}.jpg" target="new" style="color:${textColor.value};">${arrMenu[i]}</a></li>`;
+            }
+            list+="</ul>"
+            menu.innerHTML=list;
+                }
+        </script>
+</body>
+</html>
