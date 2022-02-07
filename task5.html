@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home task 5</title>
+    <style>
+        h1{
+            text-align: center;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: rgb(255, 151, 182);
+        }
+        .container{
+            display:flex;
+            flex-wrap: wrap;
+            background-color: rgb(255, 151, 182);
+        }
+        #max_elem, #factorial, #summ_arrays{
+            margin:10px;
+            background: rgb(255, 183, 183) ;
+            padding: 30px 5px;
+        }
+        #but{
+            background-color: antiquewhite;
+            border-color: antiquewhite;
+            border-radius: 5px;
+            padding-left: auto;
+        }
+        p{
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #result,#result1,#result2 { 
+            background-color: antiquewhite;
+text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Домашнее задание №5</h1>
+    <div class="container">
+<div id="max_elem">
+<p><b>Найти максимальный элемент массива</b> </p>
+<p>
+    Введите массив: <input type="text" id="myArr" value="12, 0.4, 30, -2, 9.3" size="20"> 
+</p>
+<p>
+    <input type="button" id="but" value="Вычислить" onclick="maxElement()">
+</p>
+<div id="result1"></div></div>
+<div id="factorial">
+    <p><b>Вычислить: C=(M!+N!)/(M+1)!</b></p>
+    <p>
+        Введите значение M: <input type="text" id="numM" value="4" size="10"> 
+    </p>
+    <p>
+        Введите значение N: <input type="text" id="numN" value="5" size="10"> 
+    </p>
+    <p>
+        <input type="button" id="but" value="Вычислить" onclick="formula()">
+    </p>
+    <div id="result"></div>
+</div>
+<div id="summ_arrays">
+    <p><b>Найти значение</b> </p>
+    <p><img src="images/capt.bmp" alt="" width="300px"></p>
+    <p>
+        Введите массив x: <input type="text" id="arrx" value="0.3, 5.2, 9.4, 8" size="20"> 
+    </p>
+    <p>
+        Введите массив y: <input type="text" id="arry" value="43, 5, 3.4, 8, 20" size="20"> 
+    </p>
+    <p>
+        <input type="button" id="but" value="Вычислить" onclick="summary()">
+    </p>
+    <div id="result2"></div>
+</div></div>
+<script>
+    function maxElement(){
+    let a=myArr.value;
+    let arr = a.split(", ");
+    console.log(arr);
+    s="";
+    let max=arr[0];
+        for(let i = 0; i<arr.length; i++){
+            if(max < arr[i]){
+            max = arr[i]; 
+        } 
+    }
+    s+=max;
+result1.innerHTML=s;
+}
+function formula(){
+    m=Number(numM.value);
+    n=Number(numN.value);
+    r="";
+    C=new Number();
+    C=(factorial(n)+factorial(m))/factorial(m+1);
+    function factorial(n){
+        let f=1;
+        while(n) f*=n--;
+        return f;
+    }
+r+=C;
+result.innerHTML=r;}
+function summary(){
+    let arr1=arrx.value;
+    let arr2=arry.value;
+    let x1=arr1.split(", ");
+    let x = x1.map(Number);
+    let y1=arr2.split(", ");
+    let y = y1.map(Number);
+    console.log(x);
+    console.log(y);
+    let sum=0;
+    let str="";
+        function sumElem(arr){ 
+            for (i = 0; i < arr.length; i++) {
+                sum += arr[i];
+                }
+                return sum;
+        }
+        console.log(sumElem(x));
+        console.log(sumElem(y));
+        C=(sumElem(x)+sumElem(y))/2;
+        str+=C.toFixed(2) ;
+        console.log(str);
+        result2.innerHTML=str;}
+</script>
+</body>
+</html>
