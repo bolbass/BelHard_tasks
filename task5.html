@@ -79,7 +79,8 @@ text-align: center;
 <script>
     function maxElement(){
     let a=myArr.value;
-    let arr = a.split(", ");
+    let ar = a.split(", ");
+    let arr = ar.map(Number);
     console.log(arr);
     s="";
     let max=arr[0];
