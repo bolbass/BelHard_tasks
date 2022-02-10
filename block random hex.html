@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        div {
+            border: 5px solid rgb(0, 0, 0);
+            width: 250px;
+            height: 250px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+        }
+    </style>
+<style id="myStyle"></style>
+</head>
+<body>
+    <section id="mainBox">
+</section>
+    <script>
+        let div = +prompt("Введите кол-во блоков:");
+        let divCount = "";
+        let s="#"
+        
+        for (i=0; i <= div; i++) {
+            let s="#"
+            let s2="";
+            let arr=['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+            for(k=0;k<=5;k++)
+            {let r=Math.random();
+            let j=r*arr.length;
+            j=Math.floor(j);
+            s+=arr[j];}
+            console.log(s)
+            divCount += `<div style="background-color:${s} ;"><img src="images/${i+1}.jpg" alt="" ></div>`;    
+        }
+        mainBox.innerHTML =  divCount;
+        
+    </script>
+</body>
+</html>
